@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 60" enable-background="new 0 0 50 60" xml:space="preserve">
+<filter  id="marker-blur">
+	<feGaussianBlur  stdDeviation="1"></feGaussianBlur>
+</filter>
+<g id="Drop_Shadow">
+	<g opacity="0.75" filter="url(#marker-blur)">
+		<path d="M41.7,5.3H8.3c-2.2,0-4,1.8-4,4v33.4c0,2.2,1.8,4,4,4h11.9l4.6,7.9c0.1,0.2,0.2,0.2,0.3,0l4.6-7.9h12c2.2,0,4-1.8,4-4V9.3
+			C45.7,7.1,43.9,5.3,41.7,5.3"/>
+	</g>
+</g>
+<g id="Icon">
+	<g id="Art">
+		<path fill="#D5D99B" d="M41.7,5.3H8.3c-2.2,0-4,1.8-4,4v33.4c0,2.2,1.8,4,4,4h11.9l4.6,7.9c0.1,0.2,0.2,0.2,0.3,0l4.6-7.9h12
+			c2.2,0,4-1.8,4-4V9.3C45.7,7.1,43.9,5.3,41.7,5.3"/>
+		<g>
+			<path d="M22.5,10.7v8.7h-1.3v-8.7c0-1.1-1.7-1-1.7,0v8.7h-1.3v-8.7c0-1.1-1.7-1-1.7,0v11.7c0,1.7,1,2.8,2.2,2.8v15.4
+				c0,3,3.2,3,3.2,0V25.2c1.3,0,2.3-1.5,2.3-2.7V10.7C24.1,9.6,22.5,9.7,22.5,10.7"/>
+			<path d="M29.8,13.4v15.3h2v11.9c0,2.9,3.1,2.9,3-0.1V13.4C34.8,8.7,29.7,8.8,29.8,13.4"/>
+		</g>
+	</g>
+</g>
+</svg>
