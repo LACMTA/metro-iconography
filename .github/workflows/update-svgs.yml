@@ -1,0 +1,22 @@
+name: Update SVG List
+on:
+  push:
+    branches: 
+      - main 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  updatesvgList: # you can put any name here
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # Checkout repo
+      - shell: bash
+        run: ls -Rpm1 ./*svg > ./data/svgs.txt # Saving file list into a file
+      - name: Save changes
+        uses: actions-go/push@v1 # pushing the changes to the repo
+        with:
+          force: true
+          commit-files: ./data/svgs.txt
+          commit-message: Updating svg list

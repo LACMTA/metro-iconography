@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Metro Iconography Table</title>
+    <link rel="stylesheet" href="https://lacmta.github.io/design-system/dist/css/styles.css" type="text/css">
+    <script src="https://lacmta.github.io/design-system/dist/js/uswds.min.js"></script>
+<script src="https://lacmta.github.io/design-system/dist/js/uswds-init.min.js"></script>
+</head>
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--basic">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="basic-logo">
+        <em class="usa-logo__text">
+          <a href="https://www.metro.net" title="Metro.net">
+            Metro
+          </a>
+        </em>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <div class="usa-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose" id="main-content">
+          <h1>Metro Iconography Table</h1>
+
+        <p class="usa-intro">The Metro iconography table is a list of icons used on the Metro <a href="https://kline.metro.net/">K Line Opening website</a>. The icons are available in SVG format.</p>
+          <p>
+            <p>The source files are found the repository located on the <a href="https://github.com/LACMTA/metro-iconography">Metro Iconography page</a>.</p>
+            <p>Notes on iconography and icon link URLs are on this (internal) Paper doc: <a href="https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8">https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8</a>
+            </p>
+          </p>
+          <!-- <canvas id="canceled_chart_summary" width="200" height="200"></canvas> -->
+          <div class="row">
+            <div class="col">
+                <table id="iconTable">
+                    <tr>
+                        <th>Icon</th>
+                        <th>Icon Name</th>
+                        <th>Icon URL</th>
+                    </tr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  </div>
+<body>
+    <h1></h1>
+    <p></p>
+
+
+
+</table>
+
+    
+</html>
+<style>
+
+    #iconTable {
+        text-align: center;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+
+<script>
+function loadImages() {
+    const iconTable = document.getElementById("iconTable");
+    fetch("./data/svgs.txt")
+        .then(response => response.text())
+        .then(text => {
+            let textArray = text.split(/\r\n|\n/);
+            textArray.forEach(function (item) {
+                let readableName = item.replace(".svg", "").replace(/-/g, " ").replace("./", "").replace("_", " ").replace("_"," ").replace("_","");
+                let cleanName = item.replace("./", "");
+                let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
+                let newTableRow = document.createElement("tr");
+                let newIcon = `<td><a href="${iconUrl}"><img src="./${item}" alt="${item}"></a></td>`;
+                let newIconName = `<td>${readableName}</td>`;
+                let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
+                newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
+                console.log(newTableRow)
+                iconTable.appendChild(newTableRow);
+            });
+
+        });
+}
+
+loadImages();
+</script>
