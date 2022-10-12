@@ -73,57 +73,6 @@
         outline:none;
         border-color:#aaa;
       }
-      .sort {
-        padding:8px 30px;
-        border-radius: 6px;
-        border:none;
-        display:inline-block;
-        color:#fff;
-        text-decoration: none;
-        background-color: #28a8e0;
-        height:30px;
-      }
-      .sort:hover {
-        text-decoration: none;
-        background-color:#1b8aba;
-      }
-      .sort:focus {
-        outline:none;
-      }
-      .sort:after {
-        display:inline-block;
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        content:"";
-        position: relative;
-        top:-10px;
-        right:-5px;
-      }
-      .sort.asc:after {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid #fff;
-        content:"";
-        position: relative;
-        top:4px;
-        right:-5px;
-      }
-      .sort.desc:after {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 5px solid #fff;
-        content:"";
-        position: relative;
-        top:-4px;
-        right:-5px;
-      }
 </style>
 
 <script>
@@ -141,8 +90,7 @@ function loadImages() {
                     let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
                     let newTableRow = document.createElement("tr");
                     let newIcon = `<td><a href="${iconUrl}"><img src="./${item}" alt="${item}"></a></td>`;
-                    let newIconName = `<td class="name">${readableName}</td>`;
-                    console.log(newIconName);
+                    let newIconName = `<td>${readableName}</td>`;
                     let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
                     newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
                     iconTable.appendChild(newTableRow);
