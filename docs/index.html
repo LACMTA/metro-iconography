@@ -88,7 +88,7 @@ function loadImages() {
                     let cleanName = item.replace("./", "");
                     let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
                     let newTableRow = document.createElement("tr");
-                    let newIcon = `<td><a href="${iconUrl}"><img src="../${item}" alt="${item}"></a></td>`;
+                    let newIcon = `<td><a href="${iconUrl}"><img src="https://github.com/LACMTA/metro-iconography/raw/main/${item}" alt="${item}"></a></td>`;
                     let newIconName = `<td>${readableName}</td>`;
                     let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
                     newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
