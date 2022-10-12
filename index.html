@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://lacmta.github.io/design-system/dist/css/styles.css" type="text/css">
     <script src="https://lacmta.github.io/design-system/dist/js/uswds.min.js"></script>
 <script src="https://lacmta.github.io/design-system/dist/js/uswds-init.min.js"></script>
-</head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 <div class="usa-overlay"></div>
 <header class="usa-header usa-header--basic">
@@ -25,44 +25,29 @@
     <div class="grid-container">
       <div class="grid-row grid-gap">
         <main class="usa-layout-docs__main desktop:grid-col-12 usa-prose" id="main-content">
-          <h1>Metro Iconography Table</h1>
-
-        <p class="usa-intro">The Metro iconography table is a list of icons used on the Metro <a href="https://kline.metro.net/">K Line Opening website</a>. The icons are available in SVG format.</p>
-          <p>
+            <h1>Metro Iconography Table</h1>
+            <p class="usa-intro">The Metro iconography table is a list of icons used on the Metro <a href="https://kline.metro.net/">K Line Opening website</a>. The icons are available in SVG format.</p>
             <p>The source files are found the repository located on the <a href="https://github.com/LACMTA/metro-iconography">Metro Iconography page</a>.</p>
-            <p>Notes on iconography and icon link URLs are on this (internal) Paper doc: <a href="https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8">https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8</a>
-            </p>
-          </p>
-          <!-- <canvas id="canceled_chart_summary" width="200" height="200"></canvas> -->
-          <div class="row">
-            <div class="col">
-                <table id="iconTable">
-                    <tr>
-                        <th>Icon</th>
-                        <th>Icon Name</th>
-                        <th>Icon URL</th>
-                    </tr>
-                </div>
-              </div>
+            <p>Notes on iconography and icon link URLs are on this (internal) Paper doc: <a href="https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8">https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8</a></p>
+            <div id="icons">
+                <input type="text" id="iconSearch" onkeyup="searchIcons()" placeholder="Search for icons..">
+                <table>
+                    <tbody class="list" id="iconTable">
+                        <tr>
+                            <th>Icon</th>
+                            <th>Icon Name</th>
+                            <th>Icon URL</th>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
         </main>
-      </div>
     </div>
   </div>
-  </main>
-
-  </div>
-<body>
-    <h1></h1>
-    <p></p>
-
-
-
-</table>
-
-    
+</div>
 </html>
+
+
 <style>
     .usa-prose > p {
         max-width: 98ex !important;
@@ -78,30 +63,116 @@
         padding: 5px;
         text-align: center;
     }
+    input {
+        border:solid 1px #ccc;
+        border-radius: 5px;
+        padding:7px 14px;
+        margin-bottom:10px
+      }
+      input:focus {
+        outline:none;
+        border-color:#aaa;
+      }
+      .sort {
+        padding:8px 30px;
+        border-radius: 6px;
+        border:none;
+        display:inline-block;
+        color:#fff;
+        text-decoration: none;
+        background-color: #28a8e0;
+        height:30px;
+      }
+      .sort:hover {
+        text-decoration: none;
+        background-color:#1b8aba;
+      }
+      .sort:focus {
+        outline:none;
+      }
+      .sort:after {
+        display:inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        content:"";
+        position: relative;
+        top:-10px;
+        right:-5px;
+      }
+      .sort.asc:after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #fff;
+        content:"";
+        position: relative;
+        top:4px;
+        right:-5px;
+      }
+      .sort.desc:after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #fff;
+        content:"";
+        position: relative;
+        top:-4px;
+        right:-5px;
+      }
 </style>
 
 <script>
 function loadImages() {
     const iconTable = document.getElementById("iconTable");
-    fetch("./data/svgs.txt")
+    fetch("/data/svgs.txt")
         .then(response => response.text())
         .then(text => {
             let textArray = text.split(/\r\n|\n/);
             textArray.forEach(function (item) {
                 let readableName = item.replace(".svg", "").replace(/-/g, " ").replace("./", "").replace("_", " ").replace("_"," ").replace("_","");
-                let cleanName = item.replace("./", "");
-                let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
-                let newTableRow = document.createElement("tr");
-                let newIcon = `<td><a href="${iconUrl}"><img src="./${item}" alt="${item}"></a></td>`;
-                let newIconName = `<td>${readableName}</td>`;
-                let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
-                newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
-                console.log(newTableRow)
-                iconTable.appendChild(newTableRow);
+                let nameLength = readableName.length;
+                if (nameLength != 0){
+                    let cleanName = item.replace("./", "");
+                    let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
+                    let newTableRow = document.createElement("tr");
+                    let newIcon = `<td><a href="${iconUrl}"><img src="./${item}" alt="${item}"></a></td>`;
+                    let newIconName = `<td class="name">${readableName}</td>`;
+                    console.log(newIconName);
+                    let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
+                    newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
+                    iconTable.appendChild(newTableRow);
+                }
             });
 
         });
 }
 
 loadImages();
+
+function searchIcons() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('iconSearch');
+    filter = input.value.toUpperCase();
+    table = document.getElementById("iconTable");
+    li = table.getElementsByTagName('td');
+    console.log(li)
+    for (let item of li) {
+        console.log(item);
+        txtValue = item.textContent || item.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            item.parentElement.style.display = "";
+        } else {
+            item.parentElement.style.display = "none";
+        }
+    }
+
+
+  }
+
 </script>
