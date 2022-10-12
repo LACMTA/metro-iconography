@@ -29,7 +29,7 @@
             <p>The source files are found the repository located on the <a href="https://github.com/LACMTA/metro-iconography">Metro Iconography page</a>.</p>
             <p>Notes on iconography and icon link URLs are on this (internal) Paper doc: <a href="https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8">https://paper.dropbox.com/doc/2.X.X-Icons-for-Digital-K-Line-Opening-Website–BjZSikouK5cCaMVyEe8OdXQHAQ-aKzzCGFYD5PCGEa7vxrM8</a></p>
             <div id="icons">
-                <input type="text" id="iconSearch" onkeyup="searchIcons()" placeholder="Search for icons..">
+                <input type="text" id="iconSearch" onkeyup="searchIcons()" placeholder="Search for icons.."> <button onclick="clearInput()" class="usa-button usa-button--secondary">Clear</button>
                 <table id="iconTable" >
                     <tbody class="list">
                         <tr>
@@ -90,7 +90,7 @@ function loadImages() {
                     let iconUrl = `https://lacmta.github.io/metro-iconography/${cleanName}`;
                     let newTableRow = document.createElement("tr");
                     let newIcon = `<td><a href="${iconUrl}"><img src="https://lacmta.github.io/metro-iconography/${item}" alt="${item}"></a></td>`;
-                    let newIconName = `<td>${readableName}</td>`;
+                    let newIconName = `<td><p>${readableName}</p></td>`;
                     let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
                     let newGitHubLink = `<td><a href="https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}">` + "View on GitHub" + `</a></td>`;
                     newTableRow.innerHTML = newIcon + newIconName + newIconUrl + newGitHubLink;
@@ -102,22 +102,25 @@ function loadImages() {
 }
 
 loadImages();
-
+function clearInput(){
+  document.getElementById("iconSearch").value = "";
+  searchIcons();
+};
 function searchIcons() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('iconSearch');
     filter = input.value.toUpperCase();
     table = document.getElementById("iconTable");
-    li = table.getElementsByTagName('td');
+    li = table.getElementsByTagName('p');
     console.log(li)
     for (let item of li) {
-        console.log(item);
+        console.log(item.innerText);
         txtValue = item.textContent || item.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            item.parentElement.style.display = "";
+            item.parentElement.parentElement.style.display = "";
         } else {
-            item.parentElement.style.display = "none";
+            item.parentElement.parentElement.style.display = "none";
         }
     }
 
