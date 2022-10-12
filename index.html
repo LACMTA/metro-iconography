@@ -92,7 +92,7 @@ function loadImages() {
                     let newIcon = `<td><a href="${iconUrl}"><img src="https://lacmta.github.io/metro-iconography/${item}" alt="${item}"></a></td>`;
                     let newIconName = `<td>${readableName}</td>`;
                     let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
-                    let newGitHubLink = `<td><a href="https://github.com/LACMTA/metro-iconography/blob/main/${item}">` + "View on GitHub" + `</a></td>`;
+                    let newGitHubLink = `<td><a href="https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}">` + "View on GitHub" + `</a></td>`;
                     newTableRow.innerHTML = newIcon + newIconName + newIconUrl + newGitHubLink;
                     iconTable.appendChild(newTableRow);
                 }
