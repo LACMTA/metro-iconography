@@ -77,7 +77,7 @@
 <script>
 function loadImages() {
     const iconTable = document.getElementById("iconTable");
-    fetch("/data/svgs.txt")
+    fetch("./svgs.txt")
         .then(response => response.text())
         .then(text => {
             let textArray = text.split(/\r\n|\n/);
@@ -88,7 +88,7 @@ function loadImages() {
                     let cleanName = item.replace("./", "");
                     let iconUrl = `https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}`;
                     let newTableRow = document.createElement("tr");
-                    let newIcon = `<td><a href="${iconUrl}"><img src="./${item}" alt="${item}"></a></td>`;
+                    let newIcon = `<td><a href="${iconUrl}"><img src="../${item}" alt="${item}"></a></td>`;
                     let newIconName = `<td>${readableName}</td>`;
                     let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
                     newTableRow.innerHTML = newIcon + newIconName + newIconUrl;
