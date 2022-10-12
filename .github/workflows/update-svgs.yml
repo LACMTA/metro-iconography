@@ -3,9 +3,7 @@ on:
   push:
     branches: 
       - main 
-  pull_request:
-    branches:
-      - main
+
 
 jobs:
   updatesvgList: # you can put any name here
