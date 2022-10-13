@@ -16,5 +16,5 @@ jobs:
         uses: actions-go/push@v1 # pushing the changes to the repo
         with:
           force: true
-          commit-files: ./data/svgs.txt
+          commit-files: ./svgs.txt
           commit-message: Updating svg list
