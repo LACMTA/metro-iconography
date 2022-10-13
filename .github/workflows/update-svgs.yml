@@ -4,7 +4,6 @@ on:
     branches: 
       - main 
 
-
 jobs:
   updatesvgList: # you can put any name here
     runs-on: ubuntu-latest
@@ -12,9 +11,10 @@ jobs:
       - uses: actions/checkout@v2 # Checkout repo
       - shell: bash
         run: ls -Rpm1 ./*svg > svgs.txt # Saving file list into a file
-      - name: Save changes
-        uses: actions-go/push@v1 # pushing the changes to the repo
-        with:
-          force: true
-          commit-files: ./svgs.txt
-          commit-message: Updating svg list
+      - name: Access cloned repository content
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add svgs.txt     
+          git commit -am '[Auto] Refresh list of SVGs'
+          git push https://${{secrets.METRO_GITHUB_TOKEN}}@github.com/lacmta/metro-iconography.git
