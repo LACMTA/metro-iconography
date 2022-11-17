@@ -40,6 +40,7 @@
 ./SocialContact_icon_youtube_b-on-w.svg
 ./SocialContact_icon_youtube_w-on-b.svg
 ./icon_bus_live-vehicle.svg
+./icon_library.svg
 ./markers-dining.svg
 ./station-01-ExpoCrenshaw.svg
 ./station-03-LeimertPark.svg
