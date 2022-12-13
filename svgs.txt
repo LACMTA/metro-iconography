@@ -21,8 +21,18 @@
 ./HowToRide_icon_transit-app.svg
 ./HowToRide_icon_transit-rail-busway-map.svg
 ./Mlogo_pref_white_for-digital.svg
+./Service_A Line.svg
+./Service_B Line.svg
 ./Service_Bike.svg
 ./Service_Bus.svg
+./Service_C Line.svg
+./Service_D Line.svg
+./Service_E Line 2.svg
+./Service_E Line.svg
+./Service_G Line.svg
+./Service_J Line.svg
+./Service_K Line.svg
+./Service_L Line.svg
 ./Service_Rail.svg
 ./SocialContact_icon_facebook.svg
 ./SocialContact_icon_facebook_b-on-w.svg
