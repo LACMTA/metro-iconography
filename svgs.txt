@@ -49,6 +49,9 @@
 ./SocialContact_icon_youtube.svg
 ./SocialContact_icon_youtube_b-on-w.svg
 ./SocialContact_icon_youtube_w-on-b.svg
+./Symbol_BusStop.svg
+./Symbol_BuswayStation.svg
+./Symbol_RailStation.svg
 ./icon_bus_live-vehicle.svg
 ./icon_library.svg
 ./markers-dining.svg
