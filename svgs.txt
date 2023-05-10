@@ -4,6 +4,11 @@
 ./Amenities_icon_explore.svg
 ./Amenities_icon_parking.svg
 ./Amenities_icon_shop.svg
+./Arrow.svg
+./ArrowBus_h.svg
+./ArrowBus_v.svg
+./ArrowTrain_h.svg
+./ArrowTrain_v.svg
 ./Contact_icon_email.svg
 ./Contact_icon_metro-net.svg
 ./Contact_icon_phone.svg
