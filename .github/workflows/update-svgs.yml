@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2 # Checkout repo
       - shell: bash
-        run: ls -Rpm1 ./*svg > svgs.txt # Saving file list into a file
+        run: find . -name "*.svg" -print > svgs.txt # Saving file list into a file
       - name: Access cloned repository content
         run: |
           git config --global user.name 'GitHub Action'
