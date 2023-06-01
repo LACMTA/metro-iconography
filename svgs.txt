@@ -30,6 +30,7 @@
 ./HowToRide_icon_tap.svg
 ./components/remove.svg
 ./components/add.svg
+./components/check.svg
 ./Service_KLine.svg
 ./Amenities_icon_explore.svg
 ./HowToRide_icon_transit-rail-busway-map.svg
