@@ -64,5 +64,3 @@
 ./station-03-LeimertPark.svg
 ./station-08-LAXMetroTransitCenter.svg
 ./station-09-AviationCentury.svg
-./components/add.svg
-./components/remove.svg
