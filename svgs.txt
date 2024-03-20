@@ -54,6 +54,7 @@
 ./Amenities_icon_bike-locker.svg
 ./Contact_icon_lep.svg
 ./station-03-LeimertPark.svg
+./Service_ExpressLanes.svg
 ./Equity_Pillar2_ListenandLearn_blk.svg
 ./Symbol_BusStop.svg
 ./Equity_Pillar4_TrainandGrow_blk.svg
