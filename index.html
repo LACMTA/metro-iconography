@@ -76,29 +76,32 @@
 </style>
 
 <script>
-function loadImages() {
-    const iconTable = document.getElementById("iconTable");
-    fetch("./svgs.txt")
-        .then(response => response.text())
-        .then(text => {
-            let textArray = text.split(/\r\n|\n/);
-            textArray.forEach(function (item) {
-                let readableName = item.replace(".svg", "").replace(/-/g, " ").replace("./", "").replace("_", " ").replace("_"," ").replace("_","");
-                let nameLength = readableName.length;
-                if (nameLength != 0){
-                    let cleanName = item.replace("./", "");
-                    let iconUrl = `https://lacmta.github.io/metro-iconography/${cleanName}`;
-                    let newTableRow = document.createElement("tr");
-                    let newIcon = `<td><a href="${iconUrl}"><img src="https://lacmta.github.io/metro-iconography/${item}" alt="${item}"></a></td>`;
-                    let newIconName = `<td><p>${readableName}</p></td>`;
-                    let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
-                    let newGitHubLink = `<td><a href="https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}">` + "View on GitHub" + `</a></td>`;
-                    newTableRow.innerHTML = newIcon + newIconName + newIconUrl + newGitHubLink;
-                    iconTable.appendChild(newTableRow);
-                }
-            });
 
-        });
+function loadImages() {
+	const iconTable = document.getElementById("iconTable");
+	fetch("./svgs.txt")
+		.then(response => response.text())
+		.then(text => {
+			let textArray = text.split(/\r\n|\n/);
+			// Sort the array in alphabetical order
+			textArray.sort();
+			textArray.forEach(function (item) {
+				let readableName = item.replace(".svg", "").replace(/-/g, " ").replace("./", "").replace("_", " ").replace("_"," ").replace("_","");
+				let nameLength = readableName.length;
+				if (nameLength != 0){
+					let cleanName = item.replace("./", "");
+					let iconUrl = `https://lacmta.github.io/metro-iconography/${cleanName}`;
+					let newTableRow = document.createElement("tr");
+					let newIcon = `<td><a href="${iconUrl}"><img src="https://lacmta.github.io/metro-iconography/${item}" alt="${item}"></a></td>`;
+					let newIconName = `<td><p>${readableName}</p></td>`;
+					let newIconUrl = `<td><a href="${iconUrl}">${iconUrl}</a></td>`;
+					let newGitHubLink = `<td><a href="https://github.com/LACMTA/metro-iconography/blob/main/${cleanName}">` + "View on GitHub" + `</a></td>`;
+					newTableRow.innerHTML = newIcon + newIconName + newIconUrl + newGitHubLink;
+					iconTable.appendChild(newTableRow);
+				}
+			});
+
+		});
 }
 
 loadImages();
