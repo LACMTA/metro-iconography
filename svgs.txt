@@ -78,7 +78,6 @@
 ./components/check.svg
 ./components/remove.svg
 ./components/add.svg
-./station-08-LAXMetroTransitCenter.svg
 ./markers-shop.svg
 ./station-09-AviationCentury.svg
 ./HowToRide_icon_rail-busway-map.svg
