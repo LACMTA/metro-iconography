@@ -88,5 +88,4 @@
 ./HowToRide_icon_tap.svg
 ./icon_rail_live-vehicle.svg
 ./ArrowBus_v.svg
-./station-03-LeimertPark.svg
 ./Projects_icon_hub_data.svg
