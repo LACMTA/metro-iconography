@@ -79,7 +79,6 @@
 ./components/remove.svg
 ./components/add.svg
 ./markers-shop.svg
-./station-09-AviationCentury.svg
 ./HowToRide_icon_rail-busway-map.svg
 ./SocialContact_icon_instagram.svg
 ./Service_Rail.svg
